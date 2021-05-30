@@ -30,21 +30,18 @@ import UIKit
         setTitle("", for: .normal)
         
         // create borde
-        backgroundColor = .clear
         layer.cornerRadius = 5.0
         layer.borderWidth = 1
         layer.borderColor = UIColor.blue.cgColor
         
         //default width, height
-        widthAnchor.constraint(equalToConstant: 30.0).isActive = false
-        heightAnchor.constraint(equalToConstant: 30.0).isActive = false
+        widthAnchor.constraint(equalToConstant: 20.0).isActive = false
+        heightAnchor.constraint(equalToConstant: 20.0).isActive = false
 
         // loading check img
         let bundle = Bundle(for: type(of: self))
         let checkedImg = UIImage(named: "check", in: bundle, compatibleWith: .none)
-
-        setImage(nil, for: .normal)
-        setImage(checkedImg, for: .highlighted)
+        
         setImage(checkedImg, for: .selected)
 
         //add event check
