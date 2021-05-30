@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2262B73789BE45C6BB4340DD /* Pods_FoodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0C0ADAB1CFC741737611BD /* Pods_FoodApp.framework */; };
+		2B76E2612663BF6200ACAD05 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E2602663BF6200ACAD05 /* SignUpController.swift */; };
+		2B76E2662663C88B00ACAD05 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E2652663C88B00ACAD05 /* CheckBox.swift */; };
 		2B9FA92C26638BD00045F0AB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9FA92B26638BD00045F0AB /* CustomTextField.swift */; };
 		2BA91493265E066C00F8930A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA91492265E066C00F8930A /* AppDelegate.swift */; };
 		2BA91495265E066C00F8930A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA91494265E066C00F8930A /* SceneDelegate.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B76E2602663BF6200ACAD05 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		2B76E2652663C88B00ACAD05 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		2B9FA92B26638BD00045F0AB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BA9148F265E066C00F8930A /* FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BA91492265E066C00F8930A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				2BA91496265E066C00F8930A /* ViewController.swift */,
+				2B76E2602663BF6200ACAD05 /* SignUpController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2B9FA92B26638BD00045F0AB /* CustomTextField.swift */,
+				2B76E2652663C88B00ACAD05 /* CheckBox.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -469,7 +475,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B76E2612663BF6200ACAD05 /* SignUpController.swift in Sources */,
 				2B9FA92C26638BD00045F0AB /* CustomTextField.swift in Sources */,
+				2B76E2662663C88B00ACAD05 /* CheckBox.swift in Sources */,
 				2BA91497265E066C00F8930A /* ViewController.swift in Sources */,
 				2BA91493265E066C00F8930A /* AppDelegate.swift in Sources */,
 				2BA91495265E066C00F8930A /* SceneDelegate.swift in Sources */,
