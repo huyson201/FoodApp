@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="FoodApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="clickLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfO-W2-WGz"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l6U-38-iK8">
                                 <rect key="frame" x="40" y="539" width="334" height="39"/>
@@ -61,7 +64,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Sign up now"/>
                                         <connections>
-                                            <segue destination="4Fc-vl-BH8" kind="show" id="wcf-bj-3fV"/>
+                                            <segue destination="4Fc-vl-BH8" kind="show" identifier="signup" id="wcf-bj-3fV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -119,6 +122,9 @@
                     <navigationItem key="navigationItem" id="NKC-aX-VHM"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="chkRemember" destination="m2s-NF-y64" id="rNH-U9-ASg"/>
+                        <outlet property="edtEmail" destination="HEX-d7-8nR" id="Y8y-Zw-D5D"/>
+                        <outlet property="edtPassword" destination="j5H-E6-8ks" id="UTh-FT-wTO"/>
                         <outlet property="loginBtn" destination="LON-yX-s0k" id="KXY-t5-APP"/>
                     </connections>
                 </viewController>
@@ -198,6 +204,10 @@
                                 <rect key="frame" x="30" y="589" width="354" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="clickSignUp:" destination="4Fc-vl-BH8" eventType="touchUpInside" id="TT3-uY-jwx"/>
+                                    <segue destination="xng-ku-uWU" kind="unwind" unwindAction="unWindSignUpToLoginWithSender:" id="O6p-wE-TAA"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uzM-oj-EA3">
                                 <rect key="frame" x="40" y="658" width="334" height="39"/>
@@ -253,8 +263,18 @@
                     <navigationItem key="navigationItem" id="8En-Xn-VR6">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ySH-LP-IYL"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnSignUp" destination="TUR-gy-bfp" id="wIo-C7-aKl"/>
+                        <outlet property="edtAddress" destination="3Eu-v2-Q7h" id="ioj-pA-BPe"/>
+                        <outlet property="edtConfirmPasswd" destination="ydD-b0-8YF" id="WO0-Ed-bIi"/>
+                        <outlet property="edtEmail" destination="sMb-TO-Xgo" id="BcS-z6-ccq"/>
+                        <outlet property="edtName" destination="gI9-Jt-ueW" id="Ox7-lb-8nG"/>
+                        <outlet property="edtPassword" destination="cp5-mP-OZK" id="wSg-MF-lHh"/>
+                        <outlet property="edtPhone" destination="9ea-3N-oOe" id="qZc-MS-4TR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8a-UL-U7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xng-ku-uWU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1001" y="62"/>
         </scene>
