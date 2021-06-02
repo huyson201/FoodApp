@@ -68,6 +68,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Ig-EU-7ou" firstAttribute="leading" secondItem="yqY-JJ-kyL" secondAttribute="trailing" constant="5" id="oua-4q-nJI"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="V0r-KD-DNx">
                                 <rect key="frame" x="30" y="432" width="156" height="20"/>
@@ -135,6 +138,8 @@
         <!--Sign Up Controller-->
         <scene sceneID="0ez-Zr-PrS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8a-UL-U7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xng-ku-uWU" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="4Fc-vl-BH8" customClass="SignUpController" customModule="FoodApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vMM-7U-AZn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -226,7 +231,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dS7-Hw-hio" firstAttribute="leading" secondItem="dBk-Kp-5b5" secondAttribute="trailing" constant="5" id="cZA-rV-97Z"/>
+                                </constraints>
                             </stackView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="J4y-fT-y0N">
+                                <rect key="frame" x="132" y="744" width="140" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YGB-RE-hmg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -273,10 +285,8 @@
                         <outlet property="edtPhone" destination="9ea-3N-oOe" id="qZc-MS-4TR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r8a-UL-U7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="xng-ku-uWU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="62"/>
+            <point key="canvasLocation" x="1000.0000000000001" y="61.607142857142854"/>
         </scene>
     </scenes>
     <designables>

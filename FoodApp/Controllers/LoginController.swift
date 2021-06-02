@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Toast_Swift
 
 class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationControllerDelegate {
    
@@ -35,13 +36,22 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
     }
 
     @IBAction func clickLogin(_ sender: Any) {
-       
-        if let email = edtEmail.text,let password = edtPassword.text{
+        
+        let email = edtEmail.text!
+        let password = edtPassword.text!
+        
+        if email.isEmpty{
+            self.view.makeToast("require email mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+        }
+        else if password.isEmpty{
+            self.view.makeToast("require password mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+        }
+        else{
             
             Auth.auth().signIn(withEmail: email, password: password){[weak self] authResult, error in
                 
-                if let error = error{
-                    print("error sign in")
+                if error != nil{
+                    self!.view.makeToast("Email / password is invalid", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
                 }
                 
                 
@@ -50,17 +60,11 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                     
                     self?.ref.child("users/\(userUid)").getData{ (error, snapshot) in
                         
-                        if let error = error{
-                            print("error getting data")
-                        }
-                        else if snapshot.exists(){
+                        if snapshot.exists(){
                             let userInfo = snapshot.value! as?NSDictionary ?? [:]
                             
                             let userLogged = User(id: userInfo["id"] as! String, name: userInfo["name"] as! String, email: userInfo["email"] as! String, phone: userInfo["phone"] as! String, address: userInfo["address"] as! String)
-                            
-                            print(userLogged)
-                            
-                            
+
                         }
                     }
                 }

@@ -42,55 +42,86 @@ class SignUpController: UIViewController {
     
     
     @IBAction func clickSignUp(_ sender: Any) {
-        self.view.makeToast("require text field mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+        //MARK: check text field is empty
+        // check fullname empty
+        let name = edtName.text!
+        if name.isEmpty{
+            self.view.makeToast("require full name mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
         
-        if let email = edtEmail.text,
-           let password = edtPassword.text,
-           let confirmPasswd = edtConfirmPasswd.text,
-           let phone = edtPhone.text,
-           let address = edtAddress.text,
-           let name = edtName.text{
-            
-            if confirmPasswd == password{
-                Auth.auth().createUser(withEmail: email, password: password){authResult,error in
+        // check email is empty
+        
+        let email = edtEmail.text!
+        if email.isEmpty{
+            self.view.makeToast("require email mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
+        
+        // check password is empty
+        let password = edtPassword.text!
+        if password.isEmpty{
+            self.view.makeToast("require password mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
+        
+        // check confirm password
+        let confirmPasswd = edtConfirmPasswd.text!
+        if confirmPasswd.isEmpty{
+            self.view.makeToast("require confirm password mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
+        
+        // check phone
+        let phone = edtPhone.text!
+        if phone.isEmpty{
+            self.view.makeToast("require phone number mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
+        
+        // check address
+        let address = edtAddress.text!
+        if address.isEmpty{
+            self.view.makeToast("require mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            return
+        }
+        
+        //check confirm password
+        
+        if confirmPasswd == password{
+            Auth.auth().createUser(withEmail: email, password: password){authResult,error in
+                
+                if let auth = authResult{
+                    let userUid = auth.user.uid
+                    self.ref.child("users").child(userUid).setValue([
+                        "id" : userUid,
+                        "email" : email,
+                        "name" : name,
+                        "phone" : phone,
+                        "address" : address,
+                        "role" : 1,
+                        "imgUrl" : ""
+                    ] as [String : Any])
                     
-                    if let auth = authResult{
-                        let userUid = auth.user.uid
-                        self.ref.child("users").child(userUid).setValue([
-                            "id" : userUid,
-                            "email" : email,
-                            "name" : name,
-                            "phone" : phone,
-                            "address" : address,
-                            "role" : 1,
-                            "imgUrl" : ""
-                        ] as [String : Any])
-                        
-                        if let signUpDelegate = self.delegate{
-                            signUpDelegate.getEmail(email: "test email ne")
-                        }
-                        self.dismiss(animated: true, completion: nil)
-
-                        
+                    if let signUpDelegate = self.delegate{
+                        signUpDelegate.getEmail(email: email)
                     }
-                
+                    
+                    self.dismiss(animated: true, completion: nil)
+
                 }
-                
+            
             }
+                
+                    
+        }else{
+            self.view.makeToast("Confirm password is invalid", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
         }
         
     }
     
    
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
