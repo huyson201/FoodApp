@@ -16,6 +16,8 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var categoryCollection: UICollectionView!
     
+    @IBOutlet weak var menuTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,3 +57,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
 
 }
+
+
+
