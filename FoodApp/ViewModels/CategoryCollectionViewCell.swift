@@ -16,7 +16,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
         public func setup(category:Category){
             ctName.text = category.cateogoryName
-            ctImg.image = UIImage(named: category.categoryImg)
+            if let url = URL(string: category.categoryImg){
+                ctImg.load(url: url)
+            }
+            
         }
     
         override func awakeFromNib() {
@@ -25,3 +28,5 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
 
 }
+
+

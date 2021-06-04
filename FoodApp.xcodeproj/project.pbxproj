@@ -24,6 +24,7 @@
 		2BA914B5265E067100F8930A /* FoodAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA914B4265E067100F8930A /* FoodAppUITests.swift */; };
 		2BB1B754265E487B0065CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1B753265E487A0065CA7D /* GoogleService-Info.plist */; };
 		2BC4299D2666618B000967EC /* SignUpSuccessDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4299C2666618B000967EC /* SignUpSuccessDelegate.swift */; };
+		2BD9FA2C266A5E8E001073E9 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9FA2B266A5E8E001073E9 /* Food.swift */; };
 		2BEC6AED2667A37800E91EB2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6AEC2667A37800E91EB2 /* HomeController.swift */; };
 		2BEC6AF22667A72D00E91EB2 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */; };
 		2BEC6B192667ACD400E91EB2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6B182667ACD400E91EB2 /* Category.swift */; };
@@ -72,6 +73,7 @@
 		2BA914B6265E067100F8930A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BB1B753265E487A0065CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2BC4299C2666618B000967EC /* SignUpSuccessDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSuccessDelegate.swift; sourceTree = "<group>"; };
+		2BD9FA2B266A5E8E001073E9 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		2BEC6AEC2667A37800E91EB2 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		2BEC6B182667ACD400E91EB2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				2B19DF552666308B00C01E11 /* User.swift */,
 				2BEC6B182667ACD400E91EB2 /* Category.swift */,
+				2BD9FA2B266A5E8E001073E9 /* Food.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 			files = (
 				2BC4299D2666618B000967EC /* SignUpSuccessDelegate.swift in Sources */,
 				2B76E2612663BF6200ACAD05 /* SignUpController.swift in Sources */,
+				2BD9FA2C266A5E8E001073E9 /* Food.swift in Sources */,
 				2B48C5372668BBFF00C32B78 /* MenuTableViewCell.swift in Sources */,
 				2B9FA92C26638BD00045F0AB /* CustomTextField.swift in Sources */,
 				2B76E2662663C88B00ACAD05 /* CheckBox.swift in Sources */,
