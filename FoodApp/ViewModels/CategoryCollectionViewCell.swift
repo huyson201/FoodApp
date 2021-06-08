@@ -13,7 +13,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var ctImg: UIImageView!
     
-    
+        // set category
         public func setup(category:Category){
             ctName.text = category.cateogoryName
             if let url = URL(string: category.categoryImg){
@@ -26,7 +26,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             super.awakeFromNib()
             ctImg.layer.cornerRadius = 10
         }
-
+    
 }
 
 

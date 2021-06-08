@@ -15,6 +15,7 @@ class MenuTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        foodImg.layer.cornerRadius = 10.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -23,4 +24,9 @@ class MenuTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func setMenuItem(food:Food){
+        lblFoodName.text = food.foodName
+        lblFoodPrice.text = "\(food.foodPrice)"
+        foodImg.load(url:URL(string: food.foodImage)!)
+    }
 }

@@ -13,13 +13,17 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: properties
 
     var categories = [Category]()
+    var oldFoods = [Food]()
     var foods = [Food]()
     var fireDB = Database.database().reference()
-    var currentCategory = 0
-    
+   
     @IBOutlet weak var categoryCollection: UICollectionView!
     
     @IBOutlet weak var menuTableView: UITableView!
+    
+    var currentCategory = 0
+    
+    let CATEGORY_ALL_FOOD  = "all"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     let value = snapshot.value as? NSDictionary ?? [:]
     
                     for item in value{
-                        print(item.value)
                         if let ctValue = item.value as?NSDictionary{
                             if let ctId = ctValue["categoryId"] as? String, let ctImg = ctValue["categoryImg"] as? String, let ctName = ctValue["categoryName"] as? String{
                                 let category = Category(categoryId: ctId, categoryImg: ctImg , categoryName: ctName)
@@ -60,13 +63,35 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
          
      
         // add food
-            self.foods.append(Food(categoryId: "1", foodDescription: "thit bo xao thom ngon", foodId: "123", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 25000))
         
-            self.foods.append(Food(categoryId: "1", foodDescription: "thit bo xao thom ngon", foodId: "123", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 25000))
-        
-            self.foods.append(Food(categoryId: "1", foodDescription: "thit bo xao thom ngon", foodId: "123", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 25000))
-        
-            self.foods.append(Food(categoryId: "1", foodDescription: "thit bo xao thom ngon", foodId: "123", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 25000))
+        fireDB.child("foods").observe(.value){
+            snapshot in
+                if snapshot.exists(){
+
+                    let value = snapshot.value as? NSDictionary ?? [:]
+    
+                    for item in value{
+                        if let mFood = item.value as?NSDictionary{
+                            if let categoryId = mFood["categoryId"] as? String,
+                               let foodImg = mFood["foodImage"] as? String,
+                               let foodName = mFood["foodName"] as? String,
+                               let foodId = mFood["foodId"] as? String,
+                               let foodPrice = mFood["foodPrice"] as? Int,
+                               let foodDesc = mFood["foodDescription"] as? String{
+                                let food = Food(categoryId: categoryId, foodDescription: foodDesc, foodId: foodId, foodImage: foodImg, foodName: foodName, foodPrice: foodPrice)
+                                self.oldFoods += [food]
+                            }
+                        }
+                        
+                    }
+                    self.foods = self.oldFoods
+                    self.menuTableView.reloadData()
+
+
+                }
+            
+            }
+            
       
     }
     
@@ -80,9 +105,19 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = IndexPath(row: currentCategory, section: 0)
-        currentCategory = indexPath.row
-
+        if let currentCell = collectionView.cellForItem(at: IndexPath(row: currentCategory, section: 0)) as? CategoryCollectionViewCell{
+            currentCell.ctName.textColor = .black
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell{
+            currentCategory = indexPath.row
+            cell.ctName.textColor = .red
+            
+            let category = categories[indexPath.row]
+            foods = getfoodsByCategoryId(ctId: category.categoryId)
+            self.menuTableView.reloadData()
+        }
+        
     }
    
     
@@ -90,9 +125,6 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
         let cell = categoryCollection.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
         cell.setup(category: categories[indexPath.row])
-        if indexPath.row == currentCategory{
-            cell.ctName.textColor = .red
-        }
         return cell
     }
     
@@ -105,12 +137,22 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
         let food = foods[indexPath.row]
-        cell.lblFoodName.text = food.foodName
-        cell.lblFoodPrice.text = "\(food.foodPrice)"
-        cell.foodImg.image = UIImage(named: food.foodImage)
+        cell.setMenuItem(food: food)
         return cell
     }
     
+    //get foods by category
+    
+    func getfoodsByCategoryId(ctId:String) -> [Food]{
+        var foods = [Food]()
+        for food in self.oldFoods{
+            if food.categoryId == ctId{
+                foods += [food]
+            }
+        }
+        return foods
+        
+    }
     
 }
 
