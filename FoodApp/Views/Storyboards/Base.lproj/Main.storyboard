@@ -289,16 +289,147 @@
         <scene sceneID="aPQ-u7-xuj">
             <objects>
                 <viewController id="6Dx-Na-QM3" customClass="FoodDetailController" customModule="FoodApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RRB-83-56X" customClass="Foof">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="RRB-83-56X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TkB-h5-ZdT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3JG-Kb-HZd">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="766"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-IX-5wf">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="991"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thit-bo-xao" translatesAutoresizingMaskIntoConstraints="NO" id="RX2-Pu-oHf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="300" id="QVi-zO-8Tt"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hamburger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60M-aT-zdB">
+                                                        <rect key="frame" x="10" y="310" width="394" height="30"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4s-7M-B0L">
+                                                        <rect key="frame" x="10" y="350" width="60.5" height="24"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLp-mh-h7e">
+                                                                <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozg-rg-Iwl">
+                                                                <rect key="frame" x="48" y="0.0" width="12.5" height="24"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TJ-5q-xjr">
+                                                        <rect key="frame" x="10" y="384" width="394" height="27.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOb-J3-Uvn">
+                                                        <rect key="frame" x="0.0" y="421.5" width="414" height="1"/>
+                                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="h29-47-bK9"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNS-Fm-Y9m">
+                                                        <rect key="frame" x="10" y="432.5" width="394" height="558.5"/>
+                                                        <string key="text"> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="4TJ-5q-xjr" secondAttribute="trailing" constant="10" id="0PN-HR-u0C"/>
+                                                    <constraint firstItem="dOb-J3-Uvn" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" id="38Q-KQ-Ykb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RX2-Pu-oHf" secondAttribute="trailing" id="3BR-OQ-S4l"/>
+                                                    <constraint firstItem="nNS-Fm-Y9m" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" constant="10" id="5Av-xQ-1ee"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dOb-J3-Uvn" secondAttribute="trailing" id="5c3-w7-Pxy"/>
+                                                    <constraint firstItem="60M-aT-zdB" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" constant="10" id="96E-MD-Kki"/>
+                                                    <constraint firstItem="RX2-Pu-oHf" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" id="9ev-Bz-E2j"/>
+                                                    <constraint firstItem="4TJ-5q-xjr" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" constant="10" id="9hT-BN-lTY"/>
+                                                    <constraint firstItem="J4s-7M-B0L" firstAttribute="top" secondItem="60M-aT-zdB" secondAttribute="bottom" constant="10" id="AcV-Rs-VbU"/>
+                                                    <constraint firstItem="nNS-Fm-Y9m" firstAttribute="top" secondItem="dOb-J3-Uvn" secondAttribute="bottom" constant="10" id="Bia-e2-bUH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="60M-aT-zdB" secondAttribute="trailing" constant="10" id="EF6-vn-SjX"/>
+                                                    <constraint firstItem="J4s-7M-B0L" firstAttribute="leading" secondItem="tQb-IX-5wf" secondAttribute="leading" constant="10" id="MaE-NE-ESj"/>
+                                                    <constraint firstItem="dOb-J3-Uvn" firstAttribute="top" secondItem="4TJ-5q-xjr" secondAttribute="bottom" constant="10" id="REX-56-QTe"/>
+                                                    <constraint firstItem="60M-aT-zdB" firstAttribute="top" secondItem="RX2-Pu-oHf" secondAttribute="bottom" constant="10" id="TEJ-oc-crZ"/>
+                                                    <constraint firstItem="4TJ-5q-xjr" firstAttribute="top" secondItem="J4s-7M-B0L" secondAttribute="bottom" constant="10" id="aND-no-ShK"/>
+                                                    <constraint firstAttribute="bottom" secondItem="nNS-Fm-Y9m" secondAttribute="bottom" id="olr-BF-FyF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nNS-Fm-Y9m" secondAttribute="trailing" constant="10" id="tgB-Lj-VeG"/>
+                                                    <constraint firstItem="RX2-Pu-oHf" firstAttribute="top" secondItem="tQb-IX-5wf" secondAttribute="top" id="urS-SN-RdN"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="tQb-IX-5wf" secondAttribute="trailing" id="1oB-1a-hOr"/>
+                                            <constraint firstItem="tQb-IX-5wf" firstAttribute="top" secondItem="3JG-Kb-HZd" secondAttribute="top" id="6Mp-AD-fgL"/>
+                                            <constraint firstItem="tQb-IX-5wf" firstAttribute="width" secondItem="3JG-Kb-HZd" secondAttribute="width" id="LUX-36-E0R"/>
+                                            <constraint firstItem="tQb-IX-5wf" firstAttribute="leading" secondItem="3JG-Kb-HZd" secondAttribute="leading" id="TaQ-YP-eVr"/>
+                                            <constraint firstItem="tQb-IX-5wf" firstAttribute="height" secondItem="3JG-Kb-HZd" secondAttribute="height" priority="250" id="fJm-Tw-8AB"/>
+                                            <constraint firstAttribute="bottom" secondItem="tQb-IX-5wf" secondAttribute="bottom" id="rY1-Ft-Fsg"/>
+                                        </constraints>
+                                    </scrollView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hY4-P4-2ZP">
+                                        <rect key="frame" x="0.0" y="766" width="414" height="42"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6Y-7d-06J">
+                                                <rect key="frame" x="0.0" y="0.0" width="232.5" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Add to cart"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZS-ir-c4T">
+                                                <rect key="frame" x="232.5" y="0.0" width="181.5" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="Buy now"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hY4-P4-2ZP" firstAttribute="leading" secondItem="TkB-h5-ZdT" secondAttribute="leading" id="7aZ-7a-u6x"/>
+                                    <constraint firstItem="3JG-Kb-HZd" firstAttribute="leading" secondItem="TkB-h5-ZdT" secondAttribute="leading" id="LfL-Vi-Iws"/>
+                                    <constraint firstAttribute="trailing" secondItem="3JG-Kb-HZd" secondAttribute="trailing" id="M81-bB-2e2"/>
+                                    <constraint firstAttribute="trailing" secondItem="hY4-P4-2ZP" secondAttribute="trailing" id="d4v-Xz-kYw"/>
+                                    <constraint firstItem="3JG-Kb-HZd" firstAttribute="top" secondItem="TkB-h5-ZdT" secondAttribute="top" id="ddW-ts-1es"/>
+                                    <constraint firstAttribute="bottom" secondItem="hY4-P4-2ZP" secondAttribute="bottom" id="iqn-SX-a27"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MN9-NU-yFX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MN9-NU-yFX" firstAttribute="trailing" secondItem="TkB-h5-ZdT" secondAttribute="trailing" id="aRH-q3-BV6"/>
+                            <constraint firstItem="TkB-h5-ZdT" firstAttribute="top" secondItem="MN9-NU-yFX" secondAttribute="top" id="c0D-XY-eKH"/>
+                            <constraint firstItem="TkB-h5-ZdT" firstAttribute="leading" secondItem="MN9-NU-yFX" secondAttribute="leading" id="dTj-Fk-XJk"/>
+                            <constraint firstItem="MN9-NU-yFX" firstAttribute="bottom" secondItem="TkB-h5-ZdT" secondAttribute="bottom" id="hia-4e-LMN"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Wj0-1F-A1Y"/>
+                    <connections>
+                        <outlet property="foodDesc" destination="nNS-Fm-Y9m" id="ha1-aT-80m"/>
+                        <outlet property="foodImg" destination="RX2-Pu-oHf" id="FCe-Bp-9Yz"/>
+                        <outlet property="foodName" destination="60M-aT-zdB" id="bsk-GS-Lrm"/>
+                        <outlet property="foodPrice" destination="hLp-mh-h7e" id="hTg-zm-4bY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRP-MC-5Mr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="826"/>
+            <point key="canvasLocation" x="1015.9420289855074" y="819.64285714285711"/>
         </scene>
         <!--Home-->
         <scene sceneID="KfC-7P-k5U">
@@ -453,6 +584,7 @@
                                             <outlet property="foodImg" destination="ug4-ll-Vw2" id="cOe-zZ-7ZR"/>
                                             <outlet property="lblFoodName" destination="Uvc-Bf-EE0" id="Kjh-r3-xHi"/>
                                             <outlet property="lblFoodPrice" destination="lWV-zz-ZIk" id="Efk-JK-tPX"/>
+                                            <segue destination="6Dx-Na-QM3" kind="show" id="NTk-hf-2bv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -487,7 +619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hib-ku-cec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305.7971014492755" y="803.57142857142856"/>
+            <point key="canvasLocation" x="2215.9420289855075" y="803.57142857142856"/>
         </scene>
         <!--Cart-->
         <scene sceneID="Ncd-rz-Mb7">
@@ -516,7 +648,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X4X-tf-dzf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="804"/>
+            <point key="canvasLocation" x="3037.68115942029" y="803.57142857142856"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="4bz-hm-8H9">
@@ -559,6 +691,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

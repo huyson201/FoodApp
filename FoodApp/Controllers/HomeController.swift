@@ -154,6 +154,16 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
+    // pass data when click food item cell
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailCT = segue.destination as? FoodDetailController,
+           let indexPath = menuTableView.indexPathForSelectedRow{
+            let row = indexPath.row
+            detailCT.food = foods[row]
+        }
+    }
+    
 }
 
 
