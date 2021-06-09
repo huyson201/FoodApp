@@ -23,4 +23,32 @@ class Food{
         self.foodPrice = foodPrice
     }
     
+    init(){
+        self.categoryId = ""
+        self.foodDescription = ""
+        self.foodId = ""
+        self.foodImage = ""
+        self.foodName  = ""
+        self.foodPrice = 0
+        
+    }
+    
+    func setFood(mFood:NSDictionary){
+        if let categoryId = mFood["categoryId"] as? String,
+           let foodImg = mFood["foodImage"] as? String,
+           let foodName = mFood["foodName"] as? String,
+           let foodId = mFood["foodId"] as? String,
+           let foodPrice = mFood["foodPrice"] as? Int,
+           let foodDesc = mFood["foodDescription"] as? String{
+            
+            self.categoryId = categoryId
+            self.foodName = foodName
+            self.foodDescription = foodDesc
+            self.foodPrice = foodPrice
+            self.foodId = foodId
+            self.foodImage = foodImg
+        }else{
+            fatalError("mfood is invalid")
+        }
+    }
 }

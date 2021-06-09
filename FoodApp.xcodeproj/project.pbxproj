@@ -26,6 +26,11 @@
 		2BB1B754265E487B0065CA7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1B753265E487A0065CA7D /* GoogleService-Info.plist */; };
 		2BC4299D2666618B000967EC /* SignUpSuccessDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4299C2666618B000967EC /* SignUpSuccessDelegate.swift */; };
 		2BD9FA2C266A5E8E001073E9 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9FA2B266A5E8E001073E9 /* Food.swift */; };
+		2BDEAFB72670E844002E4B39 /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAFB62670E844002E4B39 /* CartController.swift */; };
+		2BDEAFBC2670EAE6002E4B39 /* CartTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAFBB2670EAE6002E4B39 /* CartTabBarController.swift */; };
+		2BDEAFC12670F495002E4B39 /* CartItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAFC02670F495002E4B39 /* CartItemTableViewCell.swift */; };
+		2BDEAFC62670FB71002E4B39 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAFC52670FB71002E4B39 /* Invoice.swift */; };
+		2BDEAFCB267105AF002E4B39 /* CartItemTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDEAFCA267105AF002E4B39 /* CartItemTableViewCellDelegate.swift */; };
 		2BEC6AED2667A37800E91EB2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6AEC2667A37800E91EB2 /* HomeController.swift */; };
 		2BEC6AF22667A72D00E91EB2 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */; };
 		2BEC6B192667ACD400E91EB2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6B182667ACD400E91EB2 /* Category.swift */; };
@@ -76,6 +81,11 @@
 		2BB1B753265E487A0065CA7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2BC4299C2666618B000967EC /* SignUpSuccessDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSuccessDelegate.swift; sourceTree = "<group>"; };
 		2BD9FA2B266A5E8E001073E9 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		2BDEAFB62670E844002E4B39 /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
+		2BDEAFBB2670EAE6002E4B39 /* CartTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTabBarController.swift; sourceTree = "<group>"; };
+		2BDEAFC02670F495002E4B39 /* CartItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCell.swift; sourceTree = "<group>"; };
+		2BDEAFC52670FB71002E4B39 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		2BDEAFCA267105AF002E4B39 /* CartItemTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		2BEC6AEC2667A37800E91EB2 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		2BEC6B182667ACD400E91EB2 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -200,6 +210,8 @@
 				2BEC6AEC2667A37800E91EB2 /* HomeController.swift */,
 				2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */,
 				2B661610266F89AD004DD56D /* FoodDetailController.swift */,
+				2BDEAFB62670E844002E4B39 /* CartController.swift */,
+				2BDEAFBB2670EAE6002E4B39 /* CartTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +222,7 @@
 				2B19DF552666308B00C01E11 /* User.swift */,
 				2BEC6B182667ACD400E91EB2 /* Category.swift */,
 				2BD9FA2B266A5E8E001073E9 /* Food.swift */,
+				2BDEAFC52670FB71002E4B39 /* Invoice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,6 +234,7 @@
 				2B76E2652663C88B00ACAD05 /* CheckBox.swift */,
 				2BEC6B202667B4C100E91EB2 /* CategoryCollectionViewCell.swift */,
 				2B48C5362668BBFF00C32B78 /* MenuTableViewCell.swift */,
+				2BDEAFC02670F495002E4B39 /* CartItemTableViewCell.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -257,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				2BC4299C2666618B000967EC /* SignUpSuccessDelegate.swift */,
+				2BDEAFCA267105AF002E4B39 /* CartItemTableViewCellDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -518,6 +533,7 @@
 				2BD9FA2C266A5E8E001073E9 /* Food.swift in Sources */,
 				2B48C5372668BBFF00C32B78 /* MenuTableViewCell.swift in Sources */,
 				2B661611266F89AD004DD56D /* FoodDetailController.swift in Sources */,
+				2BDEAFC12670F495002E4B39 /* CartItemTableViewCell.swift in Sources */,
 				2B9FA92C26638BD00045F0AB /* CustomTextField.swift in Sources */,
 				2B76E2662663C88B00ACAD05 /* CheckBox.swift in Sources */,
 				2BEC6AF22667A72D00E91EB2 /* HomeTabBarController.swift in Sources */,
@@ -526,8 +542,12 @@
 				2BEC6AED2667A37800E91EB2 /* HomeController.swift in Sources */,
 				2B48C52F2668B7DD00C32B78 /* Extensions.swift in Sources */,
 				2BEC6B192667ACD400E91EB2 /* Category.swift in Sources */,
+				2BDEAFBC2670EAE6002E4B39 /* CartTabBarController.swift in Sources */,
 				2BA91493265E066C00F8930A /* AppDelegate.swift in Sources */,
+				2BDEAFB72670E844002E4B39 /* CartController.swift in Sources */,
+				2BDEAFC62670FB71002E4B39 /* Invoice.swift in Sources */,
 				2BA91495265E066C00F8930A /* SceneDelegate.swift in Sources */,
+				2BDEAFCB267105AF002E4B39 /* CartItemTableViewCellDelegate.swift in Sources */,
 				2B19DF562666308B00C01E11 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

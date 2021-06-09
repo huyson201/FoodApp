@@ -17,4 +17,23 @@ class Category  {
         self.cateogoryName = categoryName
     }
     
+    init(){
+        self.categoryId = ""
+        self.categoryImg = ""
+        self.cateogoryName = ""
+    }
+    
+    func setCategory(category:NSDictionary){
+        if let ctId = category["categoryId"] as? String,
+           let ctImg = category["categoryImg"] as? String,
+           let ctName = category["categoryName"] as? String{
+           
+            self.categoryId = ctId
+            self.categoryImg = ctImg
+            self.cateogoryName = ctName
+        }else{
+            fatalError("category not invalid")
+        }
+    }
+    
 }

@@ -45,17 +45,17 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
                     for item in value{
                         if let ctValue = item.value as?NSDictionary{
-                            if let ctId = ctValue["categoryId"] as? String, let ctImg = ctValue["categoryImg"] as? String, let ctName = ctValue["categoryName"] as? String{
-                                let category = Category(categoryId: ctId, categoryImg: ctImg , categoryName: ctName)
-                                self.categories += [category]
-                                self.categories = self.categories.sorted(by: {$0.categoryId < $1.categoryId})
-                            }
+                            
+                        let category = Category()
+                        category.setCategory(category: ctValue)
+                        self.categories += [category]
+                        self.categories = self.categories.sorted(by: {$0.categoryId < $1.categoryId})
+                            
                         }
                         
                     }
                    
                     self.categoryCollection.reloadData()
-
 
                 }
             
@@ -72,18 +72,12 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
                     for item in value{
                         if let mFood = item.value as?NSDictionary{
-                            if let categoryId = mFood["categoryId"] as? String,
-                               let foodImg = mFood["foodImage"] as? String,
-                               let foodName = mFood["foodName"] as? String,
-                               let foodId = mFood["foodId"] as? String,
-                               let foodPrice = mFood["foodPrice"] as? Int,
-                               let foodDesc = mFood["foodDescription"] as? String{
-                                let food = Food(categoryId: categoryId, foodDescription: foodDesc, foodId: foodId, foodImage: foodImg, foodName: foodName, foodPrice: foodPrice)
-                                self.oldFoods += [food]
-                            }
+                            let food = Food()
+                            food.setFood(mFood: mFood)
+                            self.oldFoods += [food]
                         }
-                        
                     }
+                    
                     self.foods = self.oldFoods
                     self.menuTableView.reloadData()
 
