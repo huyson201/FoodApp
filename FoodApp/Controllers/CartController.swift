@@ -17,7 +17,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // set edit button
         
-        let leftButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: Selector("showEditing:"))
+        let leftButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(showEditing(sender:)))
         self.navigationItem.leftBarButtonItem = leftButton
         
         tableView.delegate = self
@@ -84,7 +84,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 
-    
+    /*
     // Override to support conditional editing of the table view.
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == 1{
@@ -92,7 +92,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         return false
     }
-    
+    */
 
     
     // Override to support editing the table view.
@@ -123,13 +123,13 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // MARK: processing edit button of navigaionbar
-    func showEditing(sender:UIBarButtonItem){
+    @objc private func showEditing(sender:UIBarButtonItem){
         if tableView.isEditing == true{
             tableView.isEditing = false
-            self.navigationItem.leftBarButtonItem?.title = "Done"
+            self.navigationItem.leftBarButtonItem?.title = "Edit"
         }else{
             tableView.isEditing = true
-            self.navigationItem.leftBarButtonItem?.title = "Edit"
+            self.navigationItem.leftBarButtonItem?.title = "Done"
         }
     }
 }
