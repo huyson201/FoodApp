@@ -630,7 +630,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PSN-Gh-BuA">
-                                <rect key="frame" x="0.0" y="88" width="414" height="715"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="727"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CartItemTableViewCell" rowHeight="130" translatesAutoresizingMaskIntoConstraints="NO" id="FLE-fs-Ky0" customClass="CartItemTableViewCell" customModule="FoodApp" customModuleProvider="target">
@@ -739,13 +739,13 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="538-rg-bzP">
-                                <rect key="frame" x="0.0" y="803" width="414" height="59"/>
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fn8-bU-CVp">
-                                        <rect key="frame" x="0.0" y="11.5" width="73" height="36"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fn8-bU-CVp">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ky-ol-Ghp" customClass="CheckBox" customModule="FoodApp" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="8" width="20" height="20"/>
+                                                <rect key="frame" x="10" y="13" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="BcY-39-UxV"/>
                                                     <constraint firstAttribute="width" constant="20" id="shC-fN-WTr"/>
@@ -759,7 +759,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6B-A4-24G">
-                                                <rect key="frame" x="38" y="8" width="27" height="20"/>
+                                                <rect key="frame" x="38" y="8" width="27" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -768,10 +768,10 @@
                                         <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rUI-r0-WaU">
-                                        <rect key="frame" x="223" y="0.0" width="191" height="59"/>
+                                        <rect key="frame" x="223" y="5" width="191" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mkW-jZ-mJh">
-                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="59"/>
+                                                <rect key="frame" x="0.0" y="5.5" width="60.5" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1j-KX-ibq">
                                                         <rect key="frame" x="0.0" y="0.0" width="60.5" height="30"/>
@@ -799,7 +799,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfr-6w-WHB">
-                                                <rect key="frame" x="70.5" y="0.0" width="120.5" height="59"/>
+                                                <rect key="frame" x="70.5" y="0.0" width="120.5" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="Buy"/>
                                             </button>
@@ -813,21 +813,32 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rUI-r0-WaU" secondAttribute="bottom" constant="5" id="9KR-aN-W2A"/>
+                                    <constraint firstItem="rUI-r0-WaU" firstAttribute="top" secondItem="538-rg-bzP" secondAttribute="top" constant="5" id="Ygh-lH-w13"/>
                                     <constraint firstItem="fn8-bU-CVp" firstAttribute="leading" secondItem="538-rg-bzP" secondAttribute="leading" constant="10" id="tM8-qQ-g0X"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-Ha-09X">
+                                <rect key="frame" x="0.0" y="815" width="414" height="1"/>
+                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="9D1-iy-JWE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Txu-L8-iTD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Txu-L8-iTD" firstAttribute="bottom" secondItem="538-rg-bzP" secondAttribute="bottom" id="6l6-8f-iNp"/>
-                            <constraint firstItem="538-rg-bzP" firstAttribute="top" secondItem="PSN-Gh-BuA" secondAttribute="bottom" id="8Ob-Ah-pvf"/>
-                            <constraint firstItem="PSN-Gh-BuA" firstAttribute="top" secondItem="Txu-L8-iTD" secondAttribute="top" id="C6K-GN-FKG"/>
-                            <constraint firstItem="PSN-Gh-BuA" firstAttribute="leading" secondItem="Txu-L8-iTD" secondAttribute="leading" id="Gnh-PA-8Tl"/>
-                            <constraint firstItem="PSN-Gh-BuA" firstAttribute="trailing" secondItem="Txu-L8-iTD" secondAttribute="trailing" id="NcW-n4-7jD"/>
-                            <constraint firstItem="Txu-L8-iTD" firstAttribute="trailing" secondItem="538-rg-bzP" secondAttribute="trailing" id="ibt-r6-rCh"/>
-                            <constraint firstItem="538-rg-bzP" firstAttribute="top" secondItem="PSN-Gh-BuA" secondAttribute="bottom" id="s5k-Ua-SfH"/>
-                            <constraint firstItem="538-rg-bzP" firstAttribute="leading" secondItem="Txu-L8-iTD" secondAttribute="leading" id="yjC-fn-ebG"/>
+                            <constraint firstItem="Txu-L8-iTD" firstAttribute="trailing" secondItem="538-rg-bzP" secondAttribute="trailing" id="9Om-lL-AyU"/>
+                            <constraint firstAttribute="trailing" secondItem="IfR-Ha-09X" secondAttribute="trailing" id="Bai-oK-GtK"/>
+                            <constraint firstItem="Txu-L8-iTD" firstAttribute="trailing" secondItem="PSN-Gh-BuA" secondAttribute="trailing" id="GTk-JF-A8d"/>
+                            <constraint firstItem="538-rg-bzP" firstAttribute="top" secondItem="IfR-Ha-09X" secondAttribute="bottom" id="J7I-gY-3Em"/>
+                            <constraint firstItem="PSN-Gh-BuA" firstAttribute="top" secondItem="Txu-L8-iTD" secondAttribute="top" id="KxS-ka-6KG"/>
+                            <constraint firstItem="538-rg-bzP" firstAttribute="leading" secondItem="Txu-L8-iTD" secondAttribute="leading" id="Zmg-bF-Zu5"/>
+                            <constraint firstAttribute="bottom" secondItem="538-rg-bzP" secondAttribute="bottom" id="bDR-kA-Dsb"/>
+                            <constraint firstItem="PSN-Gh-BuA" firstAttribute="leading" secondItem="Txu-L8-iTD" secondAttribute="leading" id="f6a-o1-GBt"/>
+                            <constraint firstItem="IfR-Ha-09X" firstAttribute="top" secondItem="PSN-Gh-BuA" secondAttribute="bottom" id="kql-Ym-V4o"/>
+                            <constraint firstItem="IfR-Ha-09X" firstAttribute="leading" secondItem="DXT-Tw-Fml" secondAttribute="leading" id="qo9-nL-L3E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="buO-Fe-RqF"/>
@@ -837,7 +848,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AP6-dy-Bo9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2363.768115942029" y="1537.5"/>
+            <point key="canvasLocation" x="2362.3188405797105" y="1537.5"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="4bz-hm-8H9">
@@ -915,7 +926,7 @@
     </designables>
     <resources>
         <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="32" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="thit-bo-xao" width="138" height="91.5"/>
@@ -924,6 +935,9 @@
         </systemColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
