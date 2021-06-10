@@ -28,15 +28,15 @@ import UIKit
     private func setup(){
         //set title
         setTitle("", for: .normal)
-        
+        setTitleColor(.systemBackground, for: .normal)
         // create borde
         layer.cornerRadius = 5.0
         layer.borderWidth = 1
         layer.borderColor = UIColor.blue.cgColor
         
         //default width, height
-        widthAnchor.constraint(equalToConstant: 20.0).isActive = false
-        heightAnchor.constraint(equalToConstant: 20.0).isActive = false
+        widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+        heightAnchor.constraint(equalToConstant: 20.0).isActive = true
 
         // loading check img
         let bundle = Bundle(for: type(of: self))

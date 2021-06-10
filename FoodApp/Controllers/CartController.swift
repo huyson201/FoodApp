@@ -7,115 +7,129 @@
 
 import UIKit
 
-class CartController: UITableViewController, CartItemTableViewCellDelegate {
+class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource ,CartItemTableViewCellDelegate {
    
     //MARK: properties
     var invoices = [Invoice]()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set edit button
+        
+        let leftButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: Selector("showEditing:"))
+        self.navigationItem.leftBarButtonItem = leftButton
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
         let food = Food(categoryId: "1", foodDescription: "", foodId: "1", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 50000)
         invoices += [Invoice(food: food)]
         invoices += [Invoice(food: food)]
         invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
-        
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
+      
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("row \(invoices.count)")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return invoices.count
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemTableViewCell", for: indexPath) as! CartItemTableViewCell
-        
+
         let invoice = invoices[indexPath.row]
         cell.setInvoice(invoice: invoice)
-        cell.indexPath = indexPath
         cell.delegate = self
         cell.delegate = self
+       
+        // check selected
+        if invoice.isSelected{
+            cell.backgroundColor = .systemGray4
+            cell.isSelected = true
+        }else{
+            cell.backgroundColor = .systemBackground
+            cell.isSelected = false
+        }
         
         return cell
     }
     
     //MARK: processing cart item table view delegate
     func onClickPlus(cell: CartItemTableViewCell) {
-        if let index = cell.indexPath{
+
+        if let index = tableView.indexPath(for: cell){
             invoices[index.row].quantity += 1
             cell.lblQuantity.text = "\(invoices[index.row].quantity)"
         }
+
     }
     
     func onClickMinus(cell: CartItemTableViewCell) {
-        if let index = cell.indexPath{
+        if let index = tableView.indexPath(for: cell){
             if invoices[index.row].quantity > 1{
                 invoices[index.row].quantity -= 1
                 cell.lblQuantity.text = "\(invoices[index.row].quantity)"
             }
-      
         }
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1{
+            return true
+        }
+        return false
     }
-    */
+    
 
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             invoices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        invoices[indexPath.row].isSelected = !invoices[indexPath.row].isSelected
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    //MARK: processing check all
+    
+    @IBAction func checkAll(_ sender: CheckBox) {
+        for item in invoices{
+            item.isSelected = sender.isCheck
+        }
+        
+        tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    
+    // MARK: processing edit button of navigaionbar
+    func showEditing(sender:UIBarButtonItem){
+        if tableView.isEditing == true{
+            tableView.isEditing = false
+            self.navigationItem.leftBarButtonItem?.title = "Done"
+        }else{
+            tableView.isEditing = true
+            self.navigationItem.leftBarButtonItem?.title = "Edit"
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -16,8 +16,7 @@ class CartItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblQuantity: UILabel!
     
     var delegate:CartItemTableViewCellDelegate?
-    var indexPath:IndexPath?
-    
+  
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
