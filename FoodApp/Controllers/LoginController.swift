@@ -57,16 +57,19 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                 
                 if let user = Auth.auth().currentUser{
                     let userUid = user.uid
-                    
-                    self?.ref.child("users/\(userUid)").getData{ (error, snapshot) in
+                    var userLogged:User?
+                    self!.ref.child("users/\(userUid)").getData{ (error, snapshot) in
                         
                         if snapshot.exists(){
                             let userInfo = snapshot.value! as?NSDictionary ?? [:]
                             
-                            let userLogged = User(id: userInfo["id"] as! String, name: userInfo["name"] as! String, email: userInfo["email"] as! String, phone: userInfo["phone"] as! String, address: userInfo["address"] as! String)
-
+                            userLogged = User(id: userInfo["id"] as! String, name: userInfo["name"] as! String, email: userInfo["email"] as! String, phone: userInfo["phone"] as! String, address: userInfo["address"] as! String)
+                            
                         }
                     }
+                    
+                    self?.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                      
                 }
                 
             }

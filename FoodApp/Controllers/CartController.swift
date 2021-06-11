@@ -12,6 +12,9 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: properties
     var invoices = [Invoice]()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblTotalPrice: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +73,8 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let index = tableView.indexPath(for: cell){
             invoices[index.row].quantity += 1
             cell.lblQuantity.text = "\(invoices[index.row].quantity)"
+            
+            lblTotalPrice.text = "\(calSumPrice())"
         }
 
     }
@@ -79,6 +84,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if invoices[index.row].quantity > 1{
                 invoices[index.row].quantity -= 1
                 cell.lblQuantity.text = "\(invoices[index.row].quantity)"
+                lblTotalPrice.text = "\(calSumPrice())"
             }
         }
     }
@@ -101,6 +107,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // Delete the row from the data source
             invoices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            lblTotalPrice.text = "\(calSumPrice())"
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -109,6 +116,8 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         invoices[indexPath.row].isSelected = !invoices[indexPath.row].isSelected
         tableView.reloadRows(at: [indexPath], with: .none)
+        
+        lblTotalPrice.text = "\(calSumPrice())"
     }
     
     //MARK: processing check all
@@ -119,6 +128,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         tableView.reloadData()
+        lblTotalPrice.text = "\(calSumPrice())"
     }
     
     
@@ -131,5 +141,16 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.isEditing = true
             self.navigationItem.leftBarButtonItem?.title = "Done"
         }
+    }
+    
+    // calculate price when user selected item
+    func calSumPrice()->Int{
+        var price = 0
+        for item in invoices{
+            if item.isSelected{
+                price += (item.quantity) * item.food.foodPrice
+            }
+        }
+        return price
     }
 }
