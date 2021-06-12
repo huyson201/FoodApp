@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class User {
+class User:Codable {
     var id:String
     var name:String
     var email:String
@@ -25,4 +25,33 @@ class User {
         imgUrl = ""
     }
     
+    init(){
+        id = ""
+        name = ""
+        email = ""
+        phone = ""
+        address = ""
+        imgUrl = ""
+        role = 1
+    }
+    
+    func setUser(userInfo:NSDictionary){
+        if let id = userInfo["id"] as? String,
+           let name = userInfo["name"] as? String,
+           let email = userInfo["email"] as? String,
+           let phone = userInfo["phone"] as? String,
+           let address = userInfo["address"] as? String,
+           let role = userInfo["role"] as? Int{
+            self.id = id
+            self.name = name
+            self.email = email
+            self.phone = phone
+            self.address = address
+            self.role = role
+        
+        }else{
+            fatalError("value not valid")
+        }
+       
+    }
 }

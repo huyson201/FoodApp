@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="loI-x7-gOX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="61.607142857142854"/>
+            <point key="canvasLocation" x="141" y="62"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="0ez-Zr-PrS">
@@ -903,7 +903,6 @@
         <!--Item-->
         <scene sceneID="sb0-4b-dda">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5AO-LJ-1sc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="etg-kO-dE2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="4DG-9i-MNT"/>
                     <toolbarItems/>
@@ -917,6 +916,7 @@
                         <segue destination="QKD-KM-lGi" kind="relationship" relationship="rootViewController" id="rBz-I4-mNN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5AO-LJ-1sc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2365" y="804"/>
         </scene>

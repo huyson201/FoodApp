@@ -23,6 +23,9 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
     
     @IBOutlet weak var chkRemember: CheckBox!
     
+    static let USER_LOGGED_IN_TAG = "userLogged"
+    static let REMEBER_LOGIN_TAG = "remember"
+    
     var ref = Database.database().reference()
 
     override func viewDidLoad() {
@@ -32,11 +35,22 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
         loginBtn.layer.borderWidth = 1
         loginBtn.layer.borderColor = UIColor.blue.cgColor
         loginBtn.layer.cornerRadius = 8
-    
-    }
-
-    @IBAction func clickLogin(_ sender: Any) {
         
+      
+      
+    }
+    
+    // check remember password, if true go to next screen
+    override func viewDidAppear(_ animated: Bool) {
+//        let remember = UserDefaults.standard.getRememberLogin()
+//
+//        if remember{
+//            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+//        }
+    }
+    
+    @IBAction func clickLogin(_ sender: Any) {
+
         let email = edtEmail.text!
         let password = edtPassword.text!
         
@@ -52,25 +66,36 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                 
                 if error != nil{
                     self!.view.makeToast("Email / password is invalid", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
-                }
-                
-                
-                if let user = Auth.auth().currentUser{
-                    let userUid = user.uid
-                    var userLogged:User?
-                    self!.ref.child("users/\(userUid)").getData{ (error, snapshot) in
-                        
-                        if snapshot.exists(){
-                            let userInfo = snapshot.value! as?NSDictionary ?? [:]
-                            
-                            userLogged = User(id: userInfo["id"] as! String, name: userInfo["name"] as! String, email: userInfo["email"] as! String, phone: userInfo["phone"] as! String, address: userInfo["address"] as! String)
-                            
-                        }
-                    }
                     
-                    self?.performSegue(withIdentifier: "LoginSegue", sender: nil)
-                      
+                }else{
+                    if let user = Auth.auth().currentUser{
+                        let userUid = user.uid
+                        
+                        self!.ref.child("users/\(userUid)").getData{ (error, snapshot) in
+                            
+                            if snapshot.exists(){
+                                        
+                                let userInfo = snapshot.value! as?NSDictionary ?? [:]
+                                let userLogged = User()
+                                userLogged.setUser(userInfo: userInfo)
+                                
+                                UserDefaults.standard.setUserLogin(user:userLogged)
+                                
+                                if self!.chkRemember.isCheck{
+                                    UserDefaults.standard.setRememberLogin(value: true)
+                                }else{
+                                    UserDefaults.standard.setRememberLogin(value: false)
+                                }
+                            }
+                        }
+                        
+                        self!.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                        
+                    }
                 }
+                
+                
+              
                 
             }
             
