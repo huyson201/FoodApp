@@ -20,6 +20,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var categoryCollection: UICollectionView!
     
     @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var edtSearch: UITextField!
     
     var currentCategory = 0
     
@@ -151,13 +152,36 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // pass data when click food item cell
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let detailCT = segue.destination as? FoodDetailController,
            let indexPath = menuTableView.indexPathForSelectedRow{
             let row = indexPath.row
             detailCT.food = foods[row]
         }
+        
+        if let destination = segue.destination as? SearchController{
+            
+            let foods = search()
+            destination.navigationItem.title = edtSearch.text!
+            destination.foods = foods
+            
+        }
+        
+        
     }
     
+    //MARKS: searching
+    func search()->[Food]{
+        var foods = [Food]()
+        let searchKey = edtSearch.text!
+        for item in self.oldFoods{
+            if item.foodName.lowercased().contains(searchKey.lowercased()){
+                foods += [item]
+            }
+        }
+        
+        return foods
+    }
 }
 
 

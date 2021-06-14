@@ -78,7 +78,6 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                                 let userInfo = snapshot.value! as?NSDictionary ?? [:]
                                 let userLogged = User()
                                 userLogged.setUser(userInfo: userInfo)
-                                
                                 UserDefaults.standard.setUserLogin(user:userLogged)
                                 
                                 if self!.chkRemember.isCheck{
