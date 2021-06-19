@@ -1028,6 +1028,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logOut:" destination="ACo-cE-aiD" eventType="touchUpInside" id="obr-Rq-cO5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtH-rs-Rd9">
                                 <rect key="frame" x="157" y="181" width="95" height="34"/>
@@ -1041,30 +1044,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" backgroundImage="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="changeName:" destination="ACo-cE-aiD" eventType="touchUpInside" id="n8c-Lo-bws"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rP-Zy-eWn">
                                 <rect key="frame" x="336" y="361" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" backgroundImage="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="changeEmail:" destination="ACo-cE-aiD" eventType="touchUpInside" id="IR9-86-aDv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOE-tM-m9m">
                                 <rect key="frame" x="336" y="445" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" backgroundImage="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="changeAddress:" destination="ACo-cE-aiD" eventType="touchUpInside" id="Jkf-jH-Yul"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNa-Kd-0pt">
                                 <rect key="frame" x="336" y="529" width="30" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" backgroundImage="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="changePhone:" destination="ACo-cE-aiD" eventType="touchUpInside" id="Kzf-0M-mPh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgu-VU-vB6">
                                 <rect key="frame" x="242" y="143.5" width="25" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" backgroundImage="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="changePicture:" destination="ACo-cE-aiD" eventType="touchUpInside" id="adV-mm-3Bt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pvo-Ei-pB2"/>
