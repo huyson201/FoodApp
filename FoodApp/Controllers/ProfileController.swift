@@ -20,9 +20,27 @@ class ProfileController: UIViewController {
     
     @IBOutlet weak var lblPhone: UILabel!
     
+    @IBOutlet weak var image: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //userName.text = UserDefaults.standard.getUserLogin()?.email
+        let user = UserDefaults.standard.getUserLogin()
+        
+        //set data
+        lblName.text = user?.name
+        lblName2.text = user?.name
+        lblEmail.text = user?.email
+        lblAddress.text = user?.address
+        lblPhone.text = user?.phone
+        if let url = URL(string: (user?.imgUrl)!){
+            image.load(url: url)
+        }
+    
+        
+        image.layer.cornerRadius = image.frame.size.width / 2
+        image.layer.masksToBounds = false
+        image.clipsToBounds = true
+        
+        print("image"+(user?.imgUrl)!)
         // Do any additional setup after loading the view.
     }
     

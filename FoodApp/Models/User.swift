@@ -41,6 +41,7 @@ class User:Codable {
            let email = userInfo["email"] as? String,
            let phone = userInfo["phone"] as? String,
            let address = userInfo["address"] as? String,
+           let imgUrl = userInfo["imgUrl"] as? String,
            let role = userInfo["role"] as? Int{
             self.id = id
             self.name = name
@@ -48,7 +49,7 @@ class User:Codable {
             self.phone = phone
             self.address = address
             self.role = role
-        
+            self.imgUrl = imgUrl
         }else{
             fatalError("value not valid")
         }
