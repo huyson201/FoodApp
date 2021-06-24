@@ -36,7 +36,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
         menuTableView.delegate = self
         menuTableView.dataSource = self
         
-        
+        print(UserDefaults.standard.value(forKey: LoginController.USER_LOGGED_IN_TAG))
         // get categories form firebase
         fireDB.child("categories").observe(.value){
             snapshot in
@@ -87,7 +87,7 @@ class HomeController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             }
             
-      
+      //  print(UserDefaults.standard.getUserLogin()?.phone)
     }
     
     

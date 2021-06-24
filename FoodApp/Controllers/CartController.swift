@@ -10,7 +10,8 @@ import UIKit
 class CartController: UIViewController, UITableViewDelegate, UITableViewDataSource ,CartItemTableViewCellDelegate {
    
     //MARK: properties
-    var invoices = [Invoice]()
+    static var invoices = [Invoice]()
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblTotalPrice: UILabel!
     
@@ -22,18 +23,15 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let leftButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(showEditing(sender:)))
         self.navigationItem.leftBarButtonItem = leftButton
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        let food = Food(categoryId: "1", foodDescription: "", foodId: "1", foodImage: "thit-bo-xao", foodName: "Thit Bo Xao", foodPrice: 50000)
-        invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
-        invoices += [Invoice(food: food)]
+       
+        print(CartController.invoices.count)
       
     }
-
+ 
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,14 +41,14 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return invoices.count
+        return CartController.invoices.count
     }
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemTableViewCell", for: indexPath) as! CartItemTableViewCell
 
-        let invoice = invoices[indexPath.row]
+        let invoice = CartController.invoices[indexPath.row]
         cell.setInvoice(invoice: invoice)
         cell.delegate = self
         cell.delegate = self
@@ -71,8 +69,8 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func onClickPlus(cell: CartItemTableViewCell) {
 
         if let index = tableView.indexPath(for: cell){
-            invoices[index.row].quantity += 1
-            cell.lblQuantity.text = "\(invoices[index.row].quantity)"
+            CartController.invoices[index.row].quantity += 1
+            cell.lblQuantity.text = "\(CartController.invoices[index.row].quantity)"
             
             lblTotalPrice.text = "\(calSumPrice())"
         }
@@ -81,9 +79,9 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func onClickMinus(cell: CartItemTableViewCell) {
         if let index = tableView.indexPath(for: cell){
-            if invoices[index.row].quantity > 1{
-                invoices[index.row].quantity -= 1
-                cell.lblQuantity.text = "\(invoices[index.row].quantity)"
+            if CartController.invoices[index.row].quantity > 1{
+                CartController.invoices[index.row].quantity -= 1
+                cell.lblQuantity.text = "\(CartController.invoices[index.row].quantity)"
                 lblTotalPrice.text = "\(calSumPrice())"
             }
         }
@@ -105,7 +103,7 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            invoices.remove(at: indexPath.row)
+            CartController.invoices.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             lblTotalPrice.text = "\(calSumPrice())"
         } else if editingStyle == .insert {
@@ -114,16 +112,19 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        invoices[indexPath.row].isSelected = !invoices[indexPath.row].isSelected
+        
+        CartController.invoices[indexPath.row].isSelected = !CartController.invoices[indexPath.row].isSelected
         tableView.reloadRows(at: [indexPath], with: .none)
         
         lblTotalPrice.text = "\(calSumPrice())"
     }
     
+    
+    
     //MARK: processing check all
     
     @IBAction func checkAll(_ sender: CheckBox) {
-        for item in invoices{
+        for item in CartController.invoices{
             item.isSelected = sender.isCheck
         }
         
@@ -146,11 +147,22 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // calculate price when user selected item
     func calSumPrice()->Int{
         var price = 0
-        for item in invoices{
+        for item in CartController.invoices{
             if item.isSelected{
                 price += (item.quantity) * item.food.foodPrice
             }
         }
         return price
     }
+    
+    
+//    @IBAction func buyBtn(_ sender: Any) {
+//        let price=0
+//        for item in CartController.invoices{
+//            if item.isSelected{
+//              price += (item.quantity) * item.food.foodPrice
+//            }
+//        }    }
+    
+    
 }

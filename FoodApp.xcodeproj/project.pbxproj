@@ -37,6 +37,8 @@
 		2BEC6AF22667A72D00E91EB2 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6AF12667A72D00E91EB2 /* HomeTabBarController.swift */; };
 		2BEC6B192667ACD400E91EB2 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6B182667ACD400E91EB2 /* Category.swift */; };
 		2BEC6B222667B4C100E91EB2 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEC6B202667B4C100E91EB2 /* CategoryCollectionViewCell.swift */; };
+		43D2BBEE2684007000E8A55C /* OrderedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BBED2684007000E8A55C /* OrderedItemTableViewCell.swift */; };
+		43D2BBF32684071C00E8A55C /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D2BBF22684071C00E8A55C /* Bill.swift */; };
 		99894C954EB1EC775929E6EE /* Pods_FoodApp_FoodAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8083C966CD7BEDC87BAD70FB /* Pods_FoodApp_FoodAppUITests.framework */; };
 		ED35DEC8D93CEEE1E6FAF8EE /* Pods_FoodAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366DD06E35D217A5F3C2606A /* Pods_FoodAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,8 @@
 		2BEC6B202667B4C100E91EB2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E0C0ADAB1CFC741737611BD /* Pods_FoodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366DD06E35D217A5F3C2606A /* Pods_FoodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43D2BBED2684007000E8A55C /* OrderedItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedItemTableViewCell.swift; sourceTree = "<group>"; };
+		43D2BBF22684071C00E8A55C /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		4B1FA4E82ED4987472EF8521 /* Pods-FoodApp-FoodAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodApp-FoodAppUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodApp-FoodAppUITests/Pods-FoodApp-FoodAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8083C966CD7BEDC87BAD70FB /* Pods_FoodApp_FoodAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodApp_FoodAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85501F01F7571FEDDA5AFB7A /* Pods-FoodAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodAppTests.release.xcconfig"; path = "Target Support Files/Pods-FoodAppTests/Pods-FoodAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				2BEC6B182667ACD400E91EB2 /* Category.swift */,
 				2BD9FA2B266A5E8E001073E9 /* Food.swift */,
 				2BDEAFC52670FB71002E4B39 /* Invoice.swift */,
+				43D2BBF22684071C00E8A55C /* Bill.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				2BEC6B202667B4C100E91EB2 /* CategoryCollectionViewCell.swift */,
 				2B48C5362668BBFF00C32B78 /* MenuTableViewCell.swift */,
 				2BDEAFC02670F495002E4B39 /* CartItemTableViewCell.swift */,
+				43D2BBED2684007000E8A55C /* OrderedItemTableViewCell.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -545,11 +551,13 @@
 				2BEC6AF22667A72D00E91EB2 /* HomeTabBarController.swift in Sources */,
 				1F5F1202267DD648002F0F93 /* ProfileController.swift in Sources */,
 				2BA91497265E066C00F8930A /* LoginController.swift in Sources */,
+				43D2BBF32684071C00E8A55C /* Bill.swift in Sources */,
 				2BEC6B222667B4C100E91EB2 /* CategoryCollectionViewCell.swift in Sources */,
 				2BEC6AED2667A37800E91EB2 /* HomeController.swift in Sources */,
 				2B48C52F2668B7DD00C32B78 /* Extensions.swift in Sources */,
 				2BEC6B192667ACD400E91EB2 /* Category.swift in Sources */,
 				2BDEAFBC2670EAE6002E4B39 /* CartTabBarController.swift in Sources */,
+				43D2BBEE2684007000E8A55C /* OrderedItemTableViewCell.swift in Sources */,
 				2BA91493265E066C00F8930A /* AppDelegate.swift in Sources */,
 				2BDEAFB72670E844002E4B39 /* CartController.swift in Sources */,
 				2BDEAFC62670FB71002E4B39 /* Invoice.swift in Sources */,

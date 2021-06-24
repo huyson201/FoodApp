@@ -32,7 +32,7 @@ class CartItemTableViewCell: UITableViewCell {
         foodName.text = invoice.food.foodName
         foodPrice.text = "\(invoice.food.foodPrice)"
         lblQuantity.text = "\(invoice.quantity)"
-        foodImg.image = UIImage(named: invoice.food.foodImage)
+        foodImg.load(url: URL(string: invoice.food.foodImage)!)        //foodImg.image = UIImage(named: invoice.food.foodImage)
     }
     
     @IBAction func clickPlus(_ sender: Any) {

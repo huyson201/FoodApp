@@ -34,7 +34,7 @@ class User:Codable {
         imgUrl = ""
         role = 1
     }
-    
+   
     func setUser(userInfo:NSDictionary){
         if let id = userInfo["id"] as? String,
            let name = userInfo["name"] as? String,

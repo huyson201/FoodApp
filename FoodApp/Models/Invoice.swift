@@ -17,4 +17,5 @@ class Invoice{
         self.food = food
         self.quantity = quantity
     }
+
 }

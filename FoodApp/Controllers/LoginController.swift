@@ -70,6 +70,7 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                 }else{
                     if let user = Auth.auth().currentUser{
                         let userUid = user.uid
+                    
                         
                         self!.ref.child("users/\(userUid)").getData{ (error, snapshot) in
                             
@@ -78,17 +79,22 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                                 let userInfo = snapshot.value! as?NSDictionary ?? [:]
                                 let userLogged = User()
                                 userLogged.setUser(userInfo: userInfo)
+                                DispatchQueue.main.sync{
                                 UserDefaults.standard.setUserLogin(user:userLogged)
-                                
+                                    self!.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                                }
+                                print(UserDefaults.standard.getUserLogin()?.imgUrl!)
                                 if self!.chkRemember.isCheck{
                                     UserDefaults.standard.setRememberLogin(value: true)
                                 }else{
                                     UserDefaults.standard.setRememberLogin(value: false)
                                 }
+                             
                             }
-                        }
+                            
                         
-                        self!.performSegue(withIdentifier: "LoginSegue", sender: nil)
+                        }
+                       
                         
                     }
                 }
