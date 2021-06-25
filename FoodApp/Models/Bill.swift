@@ -22,5 +22,17 @@ class Bill{
         self.sumPrice = sumPrice
         self.userId = userId
     }
+    
+    init(){
+        self.id = ""
+        self.invoices = [Invoice]()
+        self.status = ""
+        self.sumPrice = 0
+        self.userId = ""
+    }
+//    func setBill(mBill:NSDictionary){
+//        if let id = mBill["id"] as? String,
+//           let
+//    }
 
 }

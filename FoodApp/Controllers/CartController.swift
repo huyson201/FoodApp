@@ -63,8 +63,6 @@ class CartController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let i = CartController.invoices.firstIndex(where: {$0.isSelected}){
             CartController.invoices.remove(at: i)
         }
-        
-
         tableView.reloadData()
         
 

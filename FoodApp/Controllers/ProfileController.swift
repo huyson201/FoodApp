@@ -126,11 +126,7 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
         dialog(str: "phone", lbl: lblPhone)
         
         
-        
-        //print(user!.phone+"new ")
-        //user!.phone = (self.lblPhone?.text)!
-        // UserDefaults.standard.setUserLogin(user: user!)
-        
+    
         
     }
     
@@ -154,6 +150,7 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
                 self.user!.name = updateValue!
                 break
             case "email":
+                
                 Auth.auth().currentUser?.updateEmail(to: updateValue!, completion:nil)
                 self.user!.email = updateValue!
                 break

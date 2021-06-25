@@ -6,14 +6,38 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 class OrderedViewController: UIViewController {
-    var foods = [Food]()
+    var bills = [Bill]()
+    var fireDB = Database.database().reference()
     @IBOutlet weak var tableView: UITableView!
+    var num = [1,3,2,5]
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+     
+//        fireDB.child("bills").observe(.value){
+//            snapshot in
+//                if snapshot.exists(){
+//
+//                    let value = snapshot.value as? NSDictionary ?? [:]
+//
+//                    for item in value{
+//                        if let mBill = item.value as?NSDictionary{
+//                            let bill = Bill()
+//
+//
+//                        }
+//                    }
+//
+//
+//
+//
+//                }
+//
+//            }
+        
     }
     
 
@@ -28,15 +52,19 @@ class OrderedViewController: UIViewController {
     */
 
 }
-//extension OrderedViewController: UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 0
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//
-//
-//
-//}
+extension OrderedViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return num.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderedTableViewCell") as? OrderedTableViewCell else{
+            return UITableViewCell()
+        }
+        return cell
+        
+    }
+
+
+
+}
