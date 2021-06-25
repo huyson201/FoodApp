@@ -9,12 +9,18 @@ import Foundation
 import UIKit
 
 class Bill{
+    var id: String
     var invoices:[Invoice]
+    var status:String
     var sumPrice:Int
-    
-    init(invoices:[Invoice],sumPrice:Int) {
+    var userId:String
+    static let COMFIRM_STATUS_TAG = "Confirming"
+    init(id:String,invoices:[Invoice],status:String,sumPrice:Int,userId:String) {
+        self.id = id
         self.invoices=invoices
-        self.sumPrice=sumPrice
+        self.status = status
+        self.sumPrice = sumPrice
+        self.userId = userId
     }
 
 }

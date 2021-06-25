@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-class ProfileController: UIViewController {
+
+class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var lblName: UILabel!
     
@@ -24,15 +25,14 @@ class ProfileController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     var textField: UITextField?
     var fireDB = Database.database().reference()
+    var fireStorage = Storage.storage().reference()
     var user = UserDefaults.standard.getUserLogin()
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async { [self] in
-            if let url = URL(string: (user?.imgUrl)!){
-                image.load(url: url)
-            }
+        
+        if let url = URL(string: (user?.imgUrl)!){
+            image.load(url: url)
         }
-       
         
         image.layer.cornerRadius = image.frame.size.width / 2
         image.clipsToBounds = true
@@ -44,15 +44,69 @@ class ProfileController: UIViewController {
         lblAddress.text = user?.address
         lblPhone.text = user?.phone
         
-      
+        
         
         
         
         
     }
     @IBAction func changePicture(_ sender: UIButton) {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+        
+        
     }
     
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        guard let imageData = image.pngData() else{
+            return
+        }
+        
+        //upload image
+        self.fireStorage.child("users").child(self.user!.id).putData(imageData, metadata: nil) { (_, error) in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+                
+            }
+            // download image url
+            self.fireStorage.child("users").child(self.user!.id).downloadURL { (url, error) in
+                guard let url = url, error == nil else {
+                    return
+                }
+                let urlString = url.absoluteString
+                //change image user
+                self.user?.imgUrl = urlString
+                // change to image
+                if let url = URL(string: (self.user?.imgUrl)!){
+                    self.image.load(url: url)
+                }
+                //change url in database
+                self.fireDB.child("users").child(self.user!.id).child("imgUrl").setValue(urlString)
+                //set user data
+                DispatchQueue.main.async {
+                    UserDefaults.standard.setUserLogin(user: self.user!)
+                }
+            }
+        }
+        
+        
+        
+        
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        picker.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func changeName(_ sender: UIButton) {
         dialog(str: "name", lbl: lblName2)
@@ -68,16 +122,16 @@ class ProfileController: UIViewController {
     }
     
     @IBAction func changePhone(_ sender: UIButton) {
-     
-            dialog(str: "phone", lbl: lblPhone)
         
-       
-      
+        dialog(str: "phone", lbl: lblPhone)
+        
+        
+        
         //print(user!.phone+"new ")
-            //user!.phone = (self.lblPhone?.text)!
-       // UserDefaults.standard.setUserLogin(user: user!)
+        //user!.phone = (self.lblPhone?.text)!
+        // UserDefaults.standard.setUserLogin(user: user!)
         
-       
+        
     }
     
     
@@ -133,12 +187,12 @@ class ProfileController: UIViewController {
     }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      //Pass the selected object to the new view controller.
-     //}
-     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //Pass the selected object to the new view controller.
+    //}
+    
     
 }

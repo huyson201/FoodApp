@@ -1,17 +1,18 @@
 //
-//  OrderedItemTableViewCell.swift
+//  MainTableViewCell.swift
 //  FoodApp
 //
-//  Created by Bao Ngoc on 6/23/21.
+//  Created by Bao Ngoc on 6/24/21.
 //
 
 import UIKit
 
-class OrderedItemTableViewCell: UITableViewCell {
+class MainTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var total: UILabel!
+    @IBOutlet weak var lblMain: UILabel!
+  
+    @IBOutlet weak var insideTableView: UITableView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,18 +24,15 @@ class OrderedItemTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    
 
 }
-
-extension OrderedItemTableViewCell{
+extension MainTableViewCell{
     func setTableViewDataSourceDelegate
     <D:UITableViewDelegate & UITableViewDataSource>
     (_ dataSourceDelegate:D, forRow:Int){
-        tableView.delegate=dataSourceDelegate
-        tableView.dataSource=dataSourceDelegate
+        insideTableView.delegate=dataSourceDelegate
+        insideTableView.dataSource=dataSourceDelegate
         
-        tableView.reloadData()
+        insideTableView.reloadData()
     }
 }

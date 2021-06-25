@@ -31,7 +31,7 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        // disign login btn
+         //design login btn
         loginBtn.layer.borderWidth = 1
         loginBtn.layer.borderColor = UIColor.blue.cgColor
         loginBtn.layer.cornerRadius = 8
@@ -42,11 +42,11 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
     
     // check remember password, if true go to next screen
     override func viewDidAppear(_ animated: Bool) {
-//        let remember = UserDefaults.standard.getRememberLogin()
-//
-//        if remember{
-//            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
-//        }
+        let remember = UserDefaults.standard.getRememberLogin()
+
+        if remember{
+            self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+        }
     }
     
     @IBAction func clickLogin(_ sender: Any) {
@@ -81,14 +81,15 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                                 userLogged.setUser(userInfo: userInfo)
                                 DispatchQueue.main.sync{
                                 UserDefaults.standard.setUserLogin(user:userLogged)
+                                    if self!.chkRemember.isCheck{
+                                        UserDefaults.standard.setRememberLogin(value: true)
+                                    }else{
+                                        UserDefaults.standard.setRememberLogin(value: false)
+                                    }
                                     self!.performSegue(withIdentifier: "LoginSegue", sender: nil)
                                 }
-                                print(UserDefaults.standard.getUserLogin()?.imgUrl!)
-                                if self!.chkRemember.isCheck{
-                                    UserDefaults.standard.setRememberLogin(value: true)
-                                }else{
-                                    UserDefaults.standard.setRememberLogin(value: false)
-                                }
+                                
+                               
                              
                             }
                             

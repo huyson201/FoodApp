@@ -62,10 +62,9 @@ class FoodDetailController: UIViewController {
                     }
                 }
 
-                //self.dismiss(animated: true)
+               
                 self.performSegue(withIdentifier: "cart", sender: self)
-                // present(HomeTabBarController(), animated: true)
-           //self.performSegue(withIdentifier: "cart", sender: self)
+                
         }
       
     }
