@@ -145,6 +145,7 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
     func dialog(str:String,lbl:UILabel){
         let dialog = UIAlertController(title: "Edit your \(str)", message: "", preferredStyle: .alert)
         let update=UIAlertAction(title: "Update", style: .default) { (action) in
+            if !((self.textField?.text!.isEmpty)!){
             let updateValue = self.textField?.text
             lbl.text = updateValue
             switch str{
@@ -169,6 +170,9 @@ class ProfileController: UIViewController, UIImagePickerControllerDelegate, UINa
                 UserDefaults.standard.setUserLogin(user: self.user!)
             }
             self.fireDB.child("users").child(self.user!.id).child(str).setValue(updateValue)
+            }else{
+                self.view.makeToast("require your \(str) mustn't empty", duration: 2.0, position: .center, title: "Error!", image:nil, completion: nil)
+            }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             dialog.dismiss(animated: true) {

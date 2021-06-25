@@ -86,6 +86,8 @@ class LoginController: UIViewController, SignUpSuccessDelegate, UINavigationCont
                                     }else{
                                         UserDefaults.standard.setRememberLogin(value: false)
                                     }
+                                    self!.edtEmail.text = ""
+                                    self!.edtPassword.text = ""
                                     self!.performSegue(withIdentifier: "LoginSegue", sender: nil)
                                 }
                                 
